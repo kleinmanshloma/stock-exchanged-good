@@ -1,26 +1,26 @@
-const btnSun = document.querySelector(".btn-toggle-light");
-const btnMoon = document.querySelector(".btn-toggle-dark");
-const check = document.querySelector(".moon");
-const check2 = document.querySelector(".sun");
-const div = document.querySelector(".btn-toggle");
-const body = document.body;
+const BTN_SUN = document.querySelector(".btn-toggle-light");
+const BTN_MOON = document.querySelector(".btn-toggle-dark");
+const CHECK = document.querySelector(".moon");
+const CHECK2 = document.querySelector(".sun");
+const DIV = document.querySelector(".btn-toggle");
+const BODY = document.body;
 
 const moon = () => {
-  body.style.backgroundColor = "#212121";
-  body.style.color = "#ccc";
-  div.classList.add("more-styles");
-  check.classList.add("hidden-moon");
+  BODY.style.backgroundColor = "#212121";
+  BODY.style.color = "#ccc";
+  DIV.classList.add("more-styles");
+  CHECK.classList.add("hidden-moon");
   console.log(`moon clicked`);
 };
 
 const sun = () => {
-  body.style.backgroundColor = "#fff";
-  body.style.color = "#212121";
-  div.classList.remove("more-styles");
-  check2.classList.add("hidden");
-  check.classList.remove("hidden-moon");
+  BODY.style.backgroundColor = "#ffff0034";
+  BODY.style.color = "#212121";
+  DIV.classList.remove("more-styles");
+  CHECK2.classList.add("hidden");
+  CHECK.classList.remove("hidden-moon");
   console.log(`sun clicked`);
 };
 
-btnMoon.addEventListener("click", moon);
-btnSun.addEventListener("click", sun);
+BTN_MOON.addEventListener("click", moon);
+BTN_SUN.addEventListener("click", sun);
