@@ -3,10 +3,20 @@
   padding: 0;
   box-sizing: border-box;
 }
+body {
+  background-color: #ffff0034;
+}
 
 .user-profile {
   display: inline-block;
   position: absolute;
   margin-left: 86%;
   margin-top: 2vh;
+}
+.row {
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+.side-bar {
+  background-color: beige;
 }

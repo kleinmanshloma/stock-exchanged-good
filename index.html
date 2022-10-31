@@ -5,9 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Stock Exchange</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="styleCss\style.css" />
     <link rel="stylesheet" href="tableCss\table.css">
     <link rel="stylesheet" href="themeCss\theme.css">
+   
   </head>
   <body>
    
@@ -57,7 +59,10 @@
         />
       </svg> -->
     </div>
-    <div class="resposive-table center-screen">
+    <div class="container mt-3 ">
+      <div class="row">
+    
+    <div class="resposive-table center-screen col-md-9">
       <table>
         <caption class="uppercase">
           energy
@@ -142,7 +147,44 @@
         </tbody>
       </table>
     </div>
+  
+    <div class="col-md-3 mt-5 text-warning card bg-light p-2">
+      <div class="card bg-dark border border-0 px-2">
+      <h2 class="text-center"><u>BUY/SELL</u></h2>
+      <h5 class="we-support text-center"></h5>
+
+      <div class="company-name"></div>
+    </div>
+
+      <div class="card bg-dark text-light border border-0 mt-3">
+      <form  class="card-body" id="buy/sell">
+        <div class="mb-3">
+          <label for="Enter_The_Share_Name" class="form-label " >Enter The Share Name:</label>
+          <input type="text" class="form-control share-name" 
+          placeholder="Enter Share Name" name="Enter_The_Share_Name">
+        </div>
+
+        <div class="mb-3 mt-3">
+          <label for="Enter_The_Amount_You_Would_Like_To_Purchase" class="form-label">Enter The Amount of Shares You Would Like To Purchase:</label>
+          <input type="text" class="form-control Purchase-amount" 
+          placeholder="Enter Purchase Amount" name="Enter_The_Amount_You_Would_Like_To_Purchase">
+        </div>
+
+        <!-- <div class="mb-3 mt-3">
+          <label for="Enter_The_Amount_You_Would_Like_To_Deposit" class="form-label">Enter The Amount You Would Like To Deposit:</label>
+          <input type="text" class="form-control deposit-amount" 
+          placeholder="Enter  Deposit Amount" name="Enter_The_Amount_You_Would_Like_To_Deposit">
+        </div> -->
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+
+    </div>
+  </div>
+</div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="togglethem.js"></script>
+    <script src="script-object.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
