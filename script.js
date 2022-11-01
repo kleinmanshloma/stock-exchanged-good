@@ -12,33 +12,79 @@ let dollarAmountToDeposit;
 let hasEnoughMoney;
 let isInValidInput;
 
-let displayCompanies = [];
+// NOT NEEDED ANY MORE
+/* let displayCompanies = [];
 
 for (let company of COMPANIES) {
   displayCompanies.push(company.name);
   console.log(...displayCompanies);
-}
-/* console.log(displayCompanies.join(", ")); */
-const COMPANIES_NAMES = ` ${displayCompanies.join("<p class=mb-1>")}`;
+} */
 
-const WE_SUPPORT_MESSAGE = `We currently soppurt ${displayCompanies.length} companies`;
+let nameAndPrice;
+let i;
+for (i = 0; i < COMPANIES.length; i += 2) {
+  let divs = COMPANIES.slice(i, i + 2)
+    .map(
+      ({ name, price }) =>
+        `<div class="row">
+        <div class="col"> ${price}</div>
+        <div class="col">${name} </div>
+        </div>`
+    )
+    .join("");
+
+  nameAndPrice += divs;
+}
+const COMPANIES_NAMES_AND_PRICE = nameAndPrice;
+
+const WE_SUPPORT_MESSAGE = `We currently soppurt ${COMPANIES.length} companies`;
 
 WE_CURRENTLY_SUPPORT.innerHTML = `${WE_SUPPORT_MESSAGE} `;
 
-COMPANY_NAME.innerHTML = `<p>${COMPANIES_NAMES} `;
+COMPANY_NAME.innerHTML = COMPANIES_NAMES_AND_PRICE;
 
+console.log(nameAndPrice);
 document.getElementById("buy/sell").addEventListener("submit", (e) => {
   e.preventDefault();
 
-  let result = COMPANIES.find(
-    (o) => o.name === document.querySelector(".share-name").value
-  );
-  let sharePrice = result.price;
+  if (document.querySelector(".share-name").value.length <= 0) {
+    document.querySelector(".share-name").classList.add("invalid");
+    alert("No Share Name Has Been Entered!");
+    return;
+  } else if (document.querySelector(".Purchase-amount").value.length <= 0) {
+    document.querySelector(".share-name").classList.remove("invalid");
+    document.querySelector(".Purchase-amount").classList.add("invalid");
+    alert("No Share Amount Has Been Entered!");
+    document.querySelector(".Purchase-amount").classList.remove("invalid");
+    return;
+  } else {
+    if (
+      COMPANIES.find(
+        (compamy) =>
+          compamy.name === document.querySelector(".share-name").value
+      )
+    ) {
+      let result = COMPANIES.find(
+        (compamy) =>
+          compamy.name === document.querySelector(".share-name").value
+      );
+      console.log();
+      let sharePrice = result.price;
 
-  let totalPrice =
-    sharePrice * document.querySelector(".Purchase-amount").value;
-  alert(`Amount needed for this transaction is $${totalPrice}`);
+      let totalPrice =
+        sharePrice * document.querySelector(".Purchase-amount").value;
+      alert(`Amount needed for this transaction is $${totalPrice}`);
+    } else {
+      alert(`Sorry we don't soppurt this Share yet!`);
+    }
+  }
 });
+
+/**/
+
+/* SHARES_AMOUNT; */
+
+//First Name Validation
 
 // ${} <p>
 /* companyIndex = prompt(

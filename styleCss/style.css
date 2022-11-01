@@ -20,3 +20,13 @@ body {
 .side-bar {
   background-color: beige;
 }
+.company-name p {
+  margin-bottom: 1px;
+}
+.invalid {
+  border-color: #fc0000;
+  box-shadow: 0 0 0 0.25rem rgb(253 13 18 / 25%);
+  color: #212529;
+  background-color: #fff;
+  outline: 0;
+}
