@@ -46,22 +46,24 @@ document.getElementById("buy/sell").addEventListener("submit", (e) => {
   console.log(metchName);
   console.log(SHARE_NAME_INSERT_VALUE);
 
+  let toggleClass = (inputNmae) => {
+    inputNmae.classList.toggle("invalid");
+  };
+
   if (SHARE_NAME_EMPTY || SHARE_AMOUNT_EMPTY) {
-    // good
-    SHARE_NAME_INSERT.classList.toggle("invalid");
-    SHARES_AMOUNT.classList.toggle("invalid");
+    toggleClass(SHARE_NAME_INSERT);
+    toggleClass(SHARES_AMOUNT);
     alert("No field has been entered!");
     console.log("No field has been entered!");
     return;
   }
   if (isInValidInputNaN) {
-    SHARES_AMOUNT.classList.toggle("invalid");
-
+    toggleClass(SHARES_AMOUNT);
     alert(`Please enter the amount field with a number!`);
     console.log(`Please enter the amount field with a number!`);
     return;
   } else if (SHARE_NAME_EMPTY || SHARE_NAME_INSERT_VALUE != metchName) {
-    SHARE_NAME_INSERT.classList.toggle("invalid");
+    toggleClass(SHARE_NAME_INSERT);
     alert(
       `Opss...  No valid share name has been entered! OR We don't soppurt this stock yet!`
     );
@@ -70,10 +72,10 @@ document.getElementById("buy/sell").addEventListener("submit", (e) => {
     );
     return;
   } else if (!SHARES_AMOUNT_VALUE > 0) {
-    SHARES_AMOUNT.classList.toggle("invalid");
+    toggleClass(SHARES_AMOUNT);
     alert(`Please enter amount more then 0!`);
     console.log(`Please enter amount more then 0!`);
-    SHARES_AMOUNT.classList.toggle("invalid");
+    toggleClass(SHARES_AMOUNT);
     return;
   } else if (metchName === SHARE_NAME_INSERT_VALUE && SHARES_AMOUNT_VALUE > 0) {
     let result = COMPANIES.find(
@@ -81,16 +83,26 @@ document.getElementById("buy/sell").addEventListener("submit", (e) => {
     );
 
     let sharePrice = result.price;
-
     let totalPrice = sharePrice * SHARES_AMOUNT_VALUE;
+    let remaining;
 
-    isEnoughMoney = prompt(
+    insertDepositAmount = prompt(
       `Amount needed for this transaction is $${totalPrice}, Please enter the amount to debit from your account`
     );
-    isEnoughMoney += +isEnoughMoney;
-    if (isEnoughMoney >= totalPrice) {
-      alert(`Great you will debited from your account $${totalPrice}`);
-      console.log(`Great you will debited from your account $${totalPrice}`);
+    insertDepositAmount = +insertDepositAmount;
+
+    remaining = insertDepositAmount - totalPrice;
+
+    if (insertDepositAmount >= totalPrice) {
+      alert(
+        `Great we will debited from your account $${totalPrice} and ${remaining} will remain in your in your account`
+      );
+      console.log(
+        `Great we will debited from your account $${totalPrice} and ${remaining} will remain in your in your account`
+      );
+    } else {
+      alert(`Opsss.... not enough credit for this transaction`);
+      console.log(`Opsss.... not enough credit for this transaction`);
     }
     SHARE_NAME_INSERT.value = "";
     SHARES_AMOUNT.value = "";
