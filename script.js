@@ -11,21 +11,14 @@ let totalPrice;
 let dollarAmountToDeposit;
 let isEnoughMoney;
 let isInValidInputNaN;
-let nameAndPrice;
 
-for (let i = 0; i < COMPANIES.length; i += 2) {
-  let divs = COMPANIES.slice(i, i + 2)
-    .map(
-      ({ name, price }) =>
-        `<div class="row">
-        <div class="col"> ${price}</div>
-        <div class="col">${name} </div>
-        </div>`
-    )
-    .join("");
-
-  nameAndPrice += divs;
-}
+let nameAndPrice = COMPANIES.map(
+  ({ name, price }) =>
+    `<div class="row">
+    <div class="col"> ${price}</div>
+    <div class="col">${name} </div>
+    </div>`
+).join("");
 
 const WE_SUPPORT_MESSAGE = `We currently soppurt ${COMPANIES.length} companies`;
 WE_CURRENTLY_SUPPORT.innerHTML = `${WE_SUPPORT_MESSAGE} `;
@@ -57,30 +50,28 @@ document.getElementById("buy/sell").addEventListener("submit", (e) => {
     // good
     SHARE_NAME_INSERT.classList.toggle("invalid");
     SHARES_AMOUNT.classList.toggle("invalid");
-    /* alert("No field has been entered!") */
+    alert("No field has been entered!");
     console.log("No field has been entered!");
     return;
   }
   if (isInValidInputNaN) {
     SHARES_AMOUNT.classList.toggle("invalid");
-    // good
-    /* alert(`Please enter the amount field with a number!`); */
+
+    alert(`Please enter the amount field with a number!`);
     console.log(`Please enter the amount field with a number!`);
     return;
   } else if (SHARE_NAME_EMPTY || SHARE_NAME_INSERT_VALUE != metchName) {
-    // good
     SHARE_NAME_INSERT.classList.toggle("invalid");
-    /*  alert(
+    alert(
       `Opss...  No valid share name has been entered! OR We don't soppurt this stock yet!`
-    ); */
+    );
     console.log(
       `Opss...  No valid share name has been entered! OR We don't soppurt this stock yet!`
     );
     return;
   } else if (!SHARES_AMOUNT_VALUE > 0) {
-    // good
     SHARES_AMOUNT.classList.toggle("invalid");
-    /*  alert(`Please enter amount more then 0!`); */
+    alert(`Please enter amount more then 0!`);
     console.log(`Please enter amount more then 0!`);
     return;
   } /*  else if (SHARE_AMOUNT_EMPTY) {
@@ -104,7 +95,7 @@ document.getElementById("buy/sell").addEventListener("submit", (e) => {
     );
     isEnoughMoney += +isEnoughMoney;
     if (isEnoughMoney >= totalPrice) {
-      /*   alert(`Great you will debited from your account $${totalPrice}`); */
+      alert(`Great you will debited from your account $${totalPrice}`);
       console.log(`Great you will debited from your account $${totalPrice}`);
     }
     SHARE_NAME_INSERT.value = "";
