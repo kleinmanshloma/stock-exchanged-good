@@ -73,15 +73,9 @@ document.getElementById("buy/sell").addEventListener("submit", (e) => {
     SHARES_AMOUNT.classList.toggle("invalid");
     alert(`Please enter amount more then 0!`);
     console.log(`Please enter amount more then 0!`);
-    return;
-  } /*  else if (SHARE_AMOUNT_EMPTY) {
     SHARES_AMOUNT.classList.toggle("invalid");
-    console.log("No Share Amount Has Been Entered!");
     return;
-  } */ else if (
-    metchName === SHARE_NAME_INSERT_VALUE &&
-    SHARES_AMOUNT_VALUE > 0
-  ) {
+  } else if (metchName === SHARE_NAME_INSERT_VALUE && SHARES_AMOUNT_VALUE > 0) {
     let result = COMPANIES.find(
       (compamy) => compamy.name === SHARE_NAME_INSERT_VALUE
     );
