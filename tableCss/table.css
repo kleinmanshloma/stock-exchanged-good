@@ -62,3 +62,7 @@ a {
   font-size: 22px;
   color: rgb(31, 2, 70);
 }
+
+img {
+  border-radius: 20%;
+}
