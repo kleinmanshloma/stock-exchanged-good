@@ -1,7 +1,11 @@
 const COMPANIES = [
   {
-    name: "bp",
+    name: `<a
+    href="https://www.marketbeat.com/stocks/NYSE/RDS.A/"
+    target="_blank"
+    >bp</a>`,
     ticker: "BP",
+    logo: `image/bp.png`,
     price: 31.36,
     isUsCompany: true,
   },
