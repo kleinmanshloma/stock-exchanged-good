@@ -58,9 +58,12 @@ tr:hover {
   background-color: #ddd;
   color: #000;
 }
-a {
+table a:link,
+table a:visited,
+table a:hover,
+table a:active {
   font-size: 22px;
-  color: rgb(31, 2, 70);
+  color: rgb(42, 0, 97);
 }
 
 img {
