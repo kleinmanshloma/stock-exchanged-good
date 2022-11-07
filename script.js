@@ -1,7 +1,7 @@
 const WE_CURRENTLY_SUPPORT = document.querySelector(".we-support");
 const COMPANY_NAMES = document.querySelector(".company-name");
 
-// THIS 2 IS NOT WORKING IN THE FUNCTION BELOW!!!!!!
+// THIS 3 IS NOT WORKING IN THE FUNCTION BELOW!!!!!!
 /* const SHARE_NAME_INSERT = document.querySelector(".share-name");
   const SHARES_AMOUNT = document.querySelector(".Purchase-amount"); 
    const DEPOSIT_AMOUNT_INSERT = document.querySelector(".deposit-amount").value; */
