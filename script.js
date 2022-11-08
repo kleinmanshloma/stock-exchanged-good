@@ -20,6 +20,31 @@ let nameAndPrice = COMPANIES.map(
     </div>`
 ).join("");
 
+let HTML = `<table>
+<thead>
+  <th>Name</th>
+    <th>Date</th>
+       <th>Price</th>
+    <th>Logo</th>
+  <th>Ticker</th>
+</thead>
+<tbody>`;
+
+for (let compamy of COMPANIES) {
+  HTML + `<tr>
+ <td>${compamy.name}</td>
+  <td>${compamy.date}</td>
+   <td>${compamy.price}</td>
+  <td>${compamy.logo}</td>
+ <td>${compamy.ticker}</td>
+</tr>`
+}
+
+HTML += `</tbody>
+</table>`;
+
+document.write(HTML);
+
 const WE_SUPPORT_MESSAGE = `We currently soppurt ${COMPANIES.length} companies`;
 WE_CURRENTLY_SUPPORT.innerHTML = `${WE_SUPPORT_MESSAGE} `;
 
