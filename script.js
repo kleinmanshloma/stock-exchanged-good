@@ -35,7 +35,7 @@ for (let compamy of COMPANIES) {
  <td>${compamy.name}</td>
   <td>${compamy.date}</td>
    <td>${compamy.price}</td>
-  <td>${compamy.logo}</td>
+  <td><img src="${compamy.logo}" alt="${compamy.logo} logo" />${compamy.logo}</td>
  <td>${compamy.ticker}</td>
 </tr>`;
 }
