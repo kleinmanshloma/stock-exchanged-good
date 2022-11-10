@@ -34,6 +34,7 @@ energy
 </caption>
 <thead class="table-head">
   <th>Name</th>
+    <th>Link</th>
     <th>Date</th>
        <th>Price</th>
     <th>Logo</th>
@@ -45,6 +46,7 @@ energy
 for (let compamy of COMPANIES) {
   HTML += `<tr>
  <td>${compamy.name}</td>
+ <td>${compamy.nameLink}</td>
   <td>${dateToday}</td>
    <td>${compamy.price}</td>
   <td><img src="${compamy.logo}" alt="${compamy.logo} logo" /></td>

@@ -1,6 +1,7 @@
 const COMPANIES = [
   {
-    name: `<a
+    name: "bp",
+    nameLink: `<a
     href="https://www.marketbeat.com/stocks/NYSE/RDS.A/"
     target="_blank"
     >bp</a>`,
@@ -10,7 +11,8 @@ const COMPANIES = [
     isUsCompany: true,
   },
   {
-    name: `<a
+    name: "eni",
+    nameLink: `<a
     href="https://www.marketbeat.com/stocks/NYSE/E/"
     target="_blank"
     >eni</a>`,
@@ -20,7 +22,8 @@ const COMPANIES = [
     isUsCompany: false,
   },
   {
-    name: `<a
+    name: "Shell",
+    nameLink: `<a
     href="https://www.marketbeat.com/stocks/NYSE/RDS-A/"
     target="_blank"
     >Royal Dutch Shell</a>`,
@@ -30,7 +33,8 @@ const COMPANIES = [
     isUsCompany: true,
   },
   {
-    name: `<a
+    name: "TotalEnergies",
+    nameLink: `<a
     href="https://www.marketbeat.com/stocks/NYSE/TTE/"
     target="_blank"
     >TotalEnergies</a>`,
@@ -40,7 +44,8 @@ const COMPANIES = [
     isUsCompany: false,
   },
   {
-    name: `<a
+    name: "linde",
+    nameLink: `<a
     href="https://www.marketbeat.com/stocks/NYSE/LIN/"
     target="_blank"
     >Linde</a>`,
