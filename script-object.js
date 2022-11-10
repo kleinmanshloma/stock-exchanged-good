@@ -15,6 +15,7 @@ const COMPANIES = [
     target="_blank"
     >eni</a>`,
     ticker: "E",
+    logo: `image/eni.png`,
     price: 23.85,
     isUsCompany: false,
   },
@@ -24,6 +25,7 @@ const COMPANIES = [
     target="_blank"
     >Royal Dutch Shell</a>`,
     ticker: "RDS.A",
+    logo: `image/Shell.png`,
     price: 51.04,
     isUsCompany: true,
   },
@@ -33,6 +35,7 @@ const COMPANIES = [
     target="_blank"
     >TotalEnergies</a>`,
     ticker: "TTE",
+    logo: `image/TotalEnergies.png`,
     price: 52.18,
     isUsCompany: false,
   },
@@ -42,6 +45,7 @@ const COMPANIES = [
     target="_blank"
     >Linde</a>`,
     ticker: "LIN",
+    logo: `image/linde.png`,
     price: 288.32,
     isUsCompany: true,
   },
