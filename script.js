@@ -148,3 +148,6 @@ document.getElementById("buy/sell").addEventListener("submit", (e) => {
     return;
   }
 });
+
+
+your-stocks.innerHTML = nameAndPrice
