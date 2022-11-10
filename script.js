@@ -12,7 +12,6 @@ let dollarAmountToDeposit;
 let isEnoughMoney;
 let isInValidInputNaN;
 
-console.log(new Date());
 let date = new Date();
 let day = date.getDate();
 let month = date.getMonth() + 1;
@@ -27,9 +26,9 @@ let nameAndPrice = COMPANIES.map(
     </div>`
 ).join("");
 
-let HTML = `<div class="container mt-3 ">
-<div class="row"><div class="resposive-table center-screen col-md-9"><table>
+let HTML = ` 
 
+<table>
 <caption class="uppercase">
 energy
 </caption>
@@ -41,8 +40,7 @@ energy
   <th>Ticker</th>
 </thead>
 <tbody>
-</div>
-</div>`;
+`;
 
 for (let compamy of COMPANIES) {
   HTML += `<tr>
@@ -57,7 +55,7 @@ for (let compamy of COMPANIES) {
 HTML += `</tbody>
 </table>`;
 
-document.write(HTML);
+document.querySelector(".html").innerHTML = HTML;
 
 const WE_SUPPORT_MESSAGE = `We currently soppurt ${COMPANIES.length} companies`;
 WE_CURRENTLY_SUPPORT.innerHTML = `${WE_SUPPORT_MESSAGE} `;
