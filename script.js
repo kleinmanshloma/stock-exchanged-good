@@ -31,13 +31,13 @@ let HTML = `<table>
 <tbody>`;
 
 for (let compamy of COMPANIES) {
-  HTML + `<tr>
+  HTML += `<tr>
  <td>${compamy.name}</td>
   <td>${compamy.date}</td>
    <td>${compamy.price}</td>
   <td>${compamy.logo}</td>
  <td>${compamy.ticker}</td>
-</tr>`
+</tr>`;
 }
 
 HTML += `</tbody>
