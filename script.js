@@ -14,7 +14,10 @@ let isInValidInputNaN;
 
 console.log(new Date());
 let date = new Date();
-let dateToday = `${date.getDay()}/${date.getMonth()}/${date.getFullYear()} `;
+let day = date.getDate();
+let month = date.getMonth() + 1;
+let year = date.getFullYear();
+let dateToday = `${day}/${month}/${year} `;
 
 let nameAndPrice = COMPANIES.map(
   ({ name, price }) =>
@@ -24,15 +27,23 @@ let nameAndPrice = COMPANIES.map(
     </div>`
 ).join("");
 
-let HTML = `<table>
-<thead>
+let HTML = `<div class="container mt-3 ">
+<div class="row"><div class="resposive-table center-screen col-md-9"><table>
+
+<caption class="uppercase">
+energy
+</caption>
+<thead class="table-head">
   <th>Name</th>
     <th>Date</th>
        <th>Price</th>
     <th>Logo</th>
   <th>Ticker</th>
 </thead>
-<tbody>`;
+<tbody>
+</div>
+</div>`;
+
 for (let compamy of COMPANIES) {
   HTML += `<tr>
  <td>${compamy.name}</td>
