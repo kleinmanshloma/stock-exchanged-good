@@ -12,6 +12,10 @@ let dollarAmountToDeposit;
 let isEnoughMoney;
 let isInValidInputNaN;
 
+console.log(new Date());
+let date = new Date();
+let dateToday = `${date.getDay()}/${date.getMonth()}/${date.getFullYear()} `;
+
 let nameAndPrice = COMPANIES.map(
   ({ name, price }) =>
     `<div class="row">
@@ -29,11 +33,10 @@ let HTML = `<table>
   <th>Ticker</th>
 </thead>
 <tbody>`;
-
 for (let compamy of COMPANIES) {
   HTML += `<tr>
  <td>${compamy.name}</td>
-  <td>${compamy.date}</td>
+  <td>${dateToday}</td>
    <td>${compamy.price}</td>
   <td><img src="${compamy.logo}" alt="${compamy.logo} logo" /></td>
  <td>${compamy.ticker}</td>
