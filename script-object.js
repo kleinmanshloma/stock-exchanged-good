@@ -22,7 +22,7 @@ const COMPANIES = [
     isUsCompany: false,
   },
   {
-    name: "Shell",
+    name: "shell",
     nameLink: `<a
     href="https://www.marketbeat.com/stocks/NYSE/RDS-A/"
     target="_blank"

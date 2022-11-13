@@ -7,15 +7,13 @@
   fill: #212121;
 }
 .absolute {
-  position: absolute;
   margin-left: 92%;
   margin-top: 2vh;
   border: #212121 solid 1.5px;
   border-radius: 100px;
   padding: 0.2rem 2rem;
   display: flex;
-  justify-content: space-between;
-  align-content: space-between;
+  flex-shrink: 1;
 }
 .more-styles {
   border: #fffbfb solid 1.5px;

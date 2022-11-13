@@ -33,25 +33,25 @@ let HTML = `
 energy
 </caption>
 <thead class="table-head">
-  <th>Name</th>
-    <th>Link</th>
-    <th>Date</th>
-       <th>Price</th>
-    <th>Logo</th>
-  <th>Ticker</th>
+<th>Name</th>
+<th>Link</th>
+<th>Date</th>
+<th>Price</th>
+<th>Logo</th>
+<th>Ticker</th>
 </thead>
 <tbody>
 `;
 
 for (let compamy of COMPANIES) {
   HTML += `<tr>
- <td>${compamy.name}</td>
- <td>${compamy.nameLink}</td>
+  <td>${compamy.name}</td>
+  <td>${compamy.nameLink}</td>
   <td>${dateToday}</td>
-   <td>${compamy.price}</td>
+  <td>${compamy.price}</td>
   <td><img src="${compamy.logo}" alt="${compamy.logo} logo" /></td>
- <td>${compamy.ticker}</td>
-</tr>`;
+  <td>${compamy.ticker}</td>
+  </tr>`;
 }
 
 HTML += `</tbody>
@@ -63,6 +63,22 @@ const WE_SUPPORT_MESSAGE = `We currently soppurt ${COMPANIES.length} companies`;
 WE_CURRENTLY_SUPPORT.innerHTML = `${WE_SUPPORT_MESSAGE} `;
 
 COMPANY_NAMES.innerHTML = nameAndPrice;
+
+/* let stocksHTML = yourStocks
+  .map(
+    ({ name, amountPurchased, curretPrice }) => `<div class="row space-around">
+  <button class="col btn btn-warning btn-sm mb-1 mr-2" type="submit">Buy more</button>
+  <button class="col btn btn-warning btn-sm mb-1" type="submit">View Details</button>
+  <div class="col"> ${curretPrice}</div>
+      <div class="col"> ${amountPurchased}</div>
+      <div class="col">${name} </div>
+      </div>`
+  )
+  .join(""); */
+let yourNewStocks;
+
+let yourStocks = [];
+let stocksHTML;
 
 document.getElementById("buy/sell").addEventListener("submit", (e) => {
   e.preventDefault();
@@ -121,8 +137,7 @@ document.getElementById("buy/sell").addEventListener("submit", (e) => {
       (compamy) => compamy.name === SHARE_NAME_INSERT_VALUE
     );
 
-    let sharePrice = result.price;
-    let totalPrice = sharePrice * SHARES_AMOUNT_VALUE;
+    let totalPrice = result.price * SHARES_AMOUNT_VALUE;
     let remaining;
 
     insertDepositAmount = prompt(
@@ -133,6 +148,18 @@ document.getElementById("buy/sell").addEventListener("submit", (e) => {
     remaining = insertDepositAmount - totalPrice;
 
     if (insertDepositAmount >= totalPrice) {
+      yourNewStocks = {
+        ticker: result.ticker,
+        amountPurchased: SHARES_AMOUNT_VALUE,
+        curretPrice: result.price,
+        totalOrder: totalPrice,
+      };
+
+      /*  your-stocks */
+      yourStocks.push(yourNewStocks);
+      console.log(yourStocks);
+      test();
+
       alert(
         `Great we will debited from your account $${totalPrice} and ${remaining} will remain in your in your account`
       );
@@ -145,9 +172,25 @@ document.getElementById("buy/sell").addEventListener("submit", (e) => {
     }
     SHARE_NAME_INSERT.value = "";
     SHARES_AMOUNT.value = "";
-    return;
   }
 });
+function test() {
+  for (let compamy of yourStocks) {
+    stocksHTML = `<tr>
+    <td>${compamy.ticker}</td>
+    <td>${compamy.curretPrice}</td>
+    <td>${compamy.amountPurchased}</td>
+    <td>${compamy.totalOrder}</td>
+    <td><button class="buyMore col btn btn-warning btn-sm mb-1 mr-2" type="submit">Buy more</button></td>
+    </tr>`;
+  }
 
+  document.querySelector(".your-stocks").innerHTML = stocksHTML;
+  console.log(yourStocks);
+}
 
-your-stocks.innerHTML = nameAndPrice
+let buyMore = () => {
+  alert(`How many ... would you like to buy?`);
+};
+
+document.querySelector(".stocks").addEventListener("click", buyMore);
