@@ -26,22 +26,7 @@ let nameAndPrice = COMPANIES.map(
     </div>`
 ).join("");
 
-let HTML = ` 
-
-<table>
-<caption class="uppercase">
-energy
-</caption>
-<thead class="table-head">
-<th>Name</th>
-<th>Link</th>
-<th>Date</th>
-<th>Price</th>
-<th>Logo</th>
-<th>Ticker</th>
-</thead>
-<tbody>
-`;
+let HTML = ``;
 
 for (let compamy of COMPANIES) {
   HTML += `<tr>
@@ -54,9 +39,6 @@ for (let compamy of COMPANIES) {
   </tr>`;
 }
 
-HTML += `</tbody>
-</table>`;
-
 document.querySelector(".html").innerHTML = HTML;
 
 const WE_SUPPORT_MESSAGE = `We currently soppurt ${COMPANIES.length} companies`;
@@ -64,21 +46,17 @@ WE_CURRENTLY_SUPPORT.innerHTML = `${WE_SUPPORT_MESSAGE} `;
 
 COMPANY_NAMES.innerHTML = nameAndPrice;
 
-/* let stocksHTML = yourStocks
-  .map(
-    ({ name, amountPurchased, curretPrice }) => `<div class="row space-around">
-  <button class="col btn btn-warning btn-sm mb-1 mr-2" type="submit">Buy more</button>
-  <button class="col btn btn-warning btn-sm mb-1" type="submit">View Details</button>
-  <div class="col"> ${curretPrice}</div>
-      <div class="col"> ${amountPurchased}</div>
-      <div class="col">${name} </div>
-      </div>`
-  )
-  .join(""); */
 let yourNewStocks;
 
-let yourStocks = [];
+let yourStocks = [...COMPANIES];
+
 let stocksHTML;
+
+/* let formEl;
+let formSubmit = () => {
+  formEl = document.getElementById("buy/sell");
+  let
+}; */
 
 document.getElementById("buy/sell").addEventListener("submit", (e) => {
   e.preventDefault();
@@ -150,7 +128,7 @@ document.getElementById("buy/sell").addEventListener("submit", (e) => {
     if (insertDepositAmount >= totalPrice) {
       yourNewStocks = {
         ticker: result.ticker,
-        amountPurchased: SHARES_AMOUNT_VALUE,
+        amount: 1,
         curretPrice: result.price,
         totalOrder: totalPrice,
       };
@@ -158,7 +136,7 @@ document.getElementById("buy/sell").addEventListener("submit", (e) => {
       /*  your-stocks */
       yourStocks.push(yourNewStocks);
       console.log(yourStocks);
-      test();
+      /*  test(); */
 
       alert(
         `Great we will debited from your account $${totalPrice} and ${remaining} will remain in your in your account`
@@ -170,27 +148,61 @@ document.getElementById("buy/sell").addEventListener("submit", (e) => {
       alert(`Opsss.... not enough credit for this transaction`);
       console.log(`Opsss.... not enough credit for this transaction`);
     }
-    SHARE_NAME_INSERT.value = "";
-    SHARES_AMOUNT.value = "";
+    document.getElementById("buy/sell").reset();
   }
 });
-function test() {
-  for (let compamy of yourStocks) {
-    stocksHTML = `<tr>
-    <td>${compamy.ticker}</td>
-    <td>${compamy.curretPrice}</td>
-    <td>${compamy.amountPurchased}</td>
-    <td>${compamy.totalOrder}</td>
-    <td><button class="buyMore col btn btn-warning btn-sm mb-1 mr-2" type="submit">Buy more</button></td>
-    </tr>`;
-  }
 
-  document.querySelector(".your-stocks").innerHTML = stocksHTML;
-  console.log(yourStocks);
+function showAddCompanyForm() {
+  document.getElementById("addCompanyForm").style.display = "block";
 }
 
-let buyMore = () => {
-  alert(`How many ... would you like to buy?`);
+let i;
+let test = () => {
+  let tableBodyElement = document.getElementById("your-stocks");
+  tableBodyElement.innerHTML = null;
+
+  for (let i = 0; i < COMPANIES.length; i++) {
+    var company = COMPANIES[i];
+    let trElement = document.createElement("tr");
+
+    creat(trElement, company.ticker);
+    creat(trElement, company.price);
+    creat(trElement, company.amount);
+
+    let btnTd = document.createElement("td");
+    let btn = document.createElement("button");
+    btnTd.append(btn);
+    btn.innerText = company.amountPurchased ? `view details` : `BUY`;
+    /* 
+    btn.addEventListener("click", function () {
+      buyStock(i);
+    }); */
+
+    trElement.append(btn);
+
+    tableBodyElement.append(trElement);
+
+    btn.addEventListener("click", function () {
+      /*   if (this.innerHTML === `view details`) {
+        console.log(`i was clicked`);
+      } */
+      let amount = Number(
+        prompt(`How many  ${company[i].ticker} stocks would you like to buy?`)
+      );
+      if (isNaN(amount) || amount == 0) {
+        alert("Invalid amount. Please enter a valid amount.");
+      } else {
+        company[i].amount += amount;
+        generateTable();
+      }
+    });
+  }
 };
 
-document.querySelector(".stocks").addEventListener("click", buyMore);
+function creat(trEl, innerText) {
+  let tdElement = document.createElement("td");
+  tdElement.innerText = innerText;
+  trEl.append(tdElement);
+}
+
+test();

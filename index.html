@@ -64,7 +64,22 @@
   </div>
     <div class="container-fluid mt-3 ml-4 ">
       <div class="row content mt-4 justify-content-around">
-        <div class="html col-md-8 sidenav align-self-center ">
+        <div class=" col-md-8 sidenav align-self-center ">
+          <table>
+            <caption class="uppercase">
+            energy
+            </caption>
+            <thead class="table-head">
+            <th>Name</th>
+            <th>Link</th>
+            <th>Date</th>
+            <th>Price</th>
+            <th>Logo</th>
+            <th>Ticker</th>
+            </thead>
+            <tbody class="html">
+            </tbody>
+          </table>
     </div>
     <div class="col-md-3 mt-4 text-warning card bg-light p-3 sidenav justify-content-around"> 
       <div class="card bg-dark border border-0 px-2 ">
@@ -74,7 +89,7 @@
       </div>
     </div>
 
-      <div class="card bg-dark text-light border border-0 mt-3">
+      <div class="card bg-dark text-light border border-0 mt-3 align-self-center">
       <form  class="card-body" id="buy/sell" >
         <div class="mb-3">
           <label for="Enter_The_Share_Name" class="form-label ">Enter The Share Name:</label>
@@ -87,7 +102,6 @@
           <input type="text" class="form-control Purchase-amount" 
           placeholder="Enter Purchase Amount" value="" name="Enter_The_Amount_You_Would_Like_To_Purchase">
         </div>
-        
         <!-- <div class="mb-3 mt-3">
           <label for="Enter_The_Amount_You_Would_Like_To_Deposit" class="form-label">Enter The Amount You Would Like To Deposit:</label>
           <input type="text" class="form-control deposit-amount" 
@@ -112,12 +126,11 @@
       your stock portfolio
       </caption>
       <thead class="table-head uppercase">
-      <th>Ticker</th>
-      <th>current price</th>
-      <th>amount of the stocks</th>
-      <th>total price</th>
+        <th>Ticker</th>
+        <th>Price</th>
+        <th>Amount</th>
       </thead>
-      <tbody class="your-stocks">
+      <tbody id="your-stocks">
       </tbody> 
       </table>
 

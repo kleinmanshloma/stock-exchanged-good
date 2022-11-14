@@ -9,6 +9,7 @@ const COMPANIES = [
     logo: `image/bp.png`,
     price: 31.36,
     isUsCompany: true,
+    amount: 0,
   },
   {
     name: "eni",
@@ -20,6 +21,7 @@ const COMPANIES = [
     logo: `image/eni.png`,
     price: 23.85,
     isUsCompany: false,
+    amount: 0,
   },
   {
     name: "shell",
@@ -31,6 +33,7 @@ const COMPANIES = [
     logo: `image/Shell.png`,
     price: 51.04,
     isUsCompany: true,
+    amount: 0,
   },
   {
     name: "TotalEnergies",
@@ -42,6 +45,7 @@ const COMPANIES = [
     logo: `image/TotalEnergies.png`,
     price: 52.18,
     isUsCompany: false,
+    amount: 0,
   },
   {
     name: "linde",
@@ -53,5 +57,6 @@ const COMPANIES = [
     logo: `image/linde.png`,
     price: 288.32,
     isUsCompany: true,
+    amount: 0,
   },
 ];
