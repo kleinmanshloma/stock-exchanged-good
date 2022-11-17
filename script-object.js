@@ -10,6 +10,7 @@ const COMPANIES = [
     price: 31.36,
     isUsCompany: true,
     amount: 0,
+    totalAmount: 0,
   },
   {
     name: "eni",
@@ -22,6 +23,7 @@ const COMPANIES = [
     price: 23.85,
     isUsCompany: false,
     amount: 0,
+    totalAmount: 0,
   },
   {
     name: "shell",
@@ -34,6 +36,7 @@ const COMPANIES = [
     price: 51.04,
     isUsCompany: true,
     amount: 0,
+    totalAmount: 0,
   },
   {
     name: "TotalEnergies",
@@ -46,6 +49,7 @@ const COMPANIES = [
     price: 52.18,
     isUsCompany: false,
     amount: 0,
+    totalAmount: 0,
   },
   {
     name: "linde",
@@ -58,5 +62,6 @@ const COMPANIES = [
     price: 288.32,
     isUsCompany: true,
     amount: 0,
+    totalAmount: 0,
   },
 ];

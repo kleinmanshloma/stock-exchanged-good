@@ -152,12 +152,10 @@ document.getElementById("buy/sell").addEventListener("submit", (e) => {
   }
 });
 
-function showAddCompanyForm() {
-  document.getElementById("addCompanyForm").style.display = "block";
-}
-
 let i;
-let test = () => {
+let sum = 0;
+sum.toFixed(2);
+let createProtfolioTable = () => {
   let tableBodyElement = document.getElementById("your-stocks");
   tableBodyElement.innerHTML = null;
 
@@ -165,35 +163,61 @@ let test = () => {
     var company = COMPANIES[i];
     let trElement = document.createElement("tr");
 
+    /*  let divElement = document.createElement("div");
+
+    trElement.append(divElement); 
+  
+  <div class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></div> */
+
     creat(trElement, company.ticker);
     creat(trElement, company.price);
     creat(trElement, company.amount);
+    creat(trElement, company.totalAmount.toFixed(2));
 
     let btnTd = document.createElement("td");
-    let btn = document.createElement("button");
-    btnTd.append(btn);
-    btn.innerText = company.amountPurchased ? `view details` : `BUY`;
+    let btnAdd = document.createElement("button");
+    btnTd.append(btnAdd);
+    btnAdd.classList.add("btn", "btn-warning", "btn-sm");
+    btnAdd.innerText = company.amount ? `Buy More` : `BUY`;
+
+    let btnRemove = document.createElement("button");
+    btnRemove.classList.add("btn", "btn-danger", "btn-sm");
+    btnRemove.innerText = `REMOVE`;
     /* 
     btn.addEventListener("click", function () {
       buyStock(i);
     }); */
 
-    trElement.append(btn);
+    trElement.append(btnAdd, btnRemove);
 
     tableBodyElement.append(trElement);
 
-    btn.addEventListener("click", function () {
+    btnRemove.addEventListener("click", (e) => {
+      e.preventDefault();
+      let result = confirm(
+        `Do you really want to remove ${COMPANIES[i].ticker}?!`
+      );
+
+      if (result) {
+        COMPANIES.splice([i], 1);
+        createProtfolioTable();
+      }
+    });
+    btnAdd.addEventListener("click", function () {
       /*   if (this.innerHTML === `view details`) {
         console.log(`i was clicked`);
       } */
       let amount = Number(
-        prompt(`How many  ${company[i].ticker} stocks would you like to buy?`)
+        prompt(`How many  ${COMPANIES[i].ticker} stocks would you like to buy?`)
       );
       if (isNaN(amount) || amount == 0) {
         alert("Invalid amount. Please enter a valid amount.");
       } else {
-        company[i].amount += amount;
-        generateTable();
+        COMPANIES[i].amount += amount;
+        company.totalAmount += company.price * company.amount;
+        sum += company.amount * company.price;
+        document.getElementById("sumOfStocks").textContent = sum;
+        createProtfolioTable();
       }
     });
   }
@@ -205,4 +229,4 @@ function creat(trEl, innerText) {
   trEl.append(tdElement);
 }
 
-test();
+createProtfolioTable();
