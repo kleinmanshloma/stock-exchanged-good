@@ -29,10 +29,6 @@ let createProtfolioTable = () => {
     let btnRemove = document.createElement("button");
     btnRemove.classList.add("btn", "btn-danger", "btn-sm");
     btnRemove.innerText = `REMOVE`;
-    /* 
-    btn.addEventListener("click", function () {
-      buyStock(i);
-    }); */
 
     trElement.append(btnAdd, btnRemove);
 
@@ -48,9 +44,6 @@ let createProtfolioTable = () => {
       }
     });
     btnAdd.addEventListener("click", function () {
-      /*   if (this.innerHTML === `view details`) {
-        console.log(`i was clicked`);
-      } */
       let amount = Number(
         prompt(`How many  ${company.ticker} stocks would you like to buy?`)
       );
