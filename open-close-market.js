@@ -26,7 +26,7 @@ function loop() {
         15 - now.getHours()
       } hours and ${
         now.getMinutes() > 30 ? 59 - now.getMinutes() : now.getMinutes() - 59
-      } minute`;
+      } minutes`;
     }
   };
 
@@ -44,7 +44,7 @@ function loop() {
     } else {
       IS_MARKET_OPEN.innerHTML = `Market is already closed for ${
         now.getHours() - 16
-      } hours and ${now.getMinutes()}`;
+      } hours and ${now.getMinutes()} minutes`;
     }
   };
 
