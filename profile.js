@@ -18,6 +18,7 @@ const RULES = [
 ];
 
 window.onload = () => {
+  document.body.style.backgroundColor = "lightblue";
   document.getElementById("password").addEventListener("change", () => {
     let password = document.getElementById("password").value;
 
@@ -33,6 +34,3 @@ let validate = (password) => {
     }
   }
 };
-document.write("test");
-
-document.body.style.backgroundColor = "lightblue";

@@ -14,7 +14,7 @@ const moon = () => {
 };
 
 const sun = () => {
-  BODY.style.backgroundColor = "#ffff0034";
+  BODY.style.backgroundColor = "#ffff0016";
   BODY.style.color = "#212121";
   DIV.classList.remove("more-styles");
   CHECK2.classList.add("hidden");
