@@ -11,6 +11,7 @@ const moon = () => {
   DIV.classList.add("more-styles");
   CHECK.classList.add("hidden-moon");
   console.log(`moon clicked`);
+  themeClick = true;
 };
 
 const sun = () => {
@@ -20,6 +21,7 @@ const sun = () => {
   CHECK2.classList.add("hidden");
   CHECK.classList.remove("hidden-moon");
   console.log(`sun clicked`);
+  themeClick = true;
 };
 
 BTN_MOON.addEventListener("click", moon);
