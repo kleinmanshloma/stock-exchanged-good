@@ -66,18 +66,6 @@ document.getElementById("buy/sell").addEventListener("submit", (e) => {
     remaining = insertDepositAmount - totalPrice;
 
     if (insertDepositAmount >= totalPrice) {
-      yourNewStocks = {
-        ticker: result.ticker,
-        amount: 1,
-        curretPrice: result.price,
-        totalOrder: totalPrice,
-      };
-
-      /*  your-stocks */
-      yourStocks.push(yourNewStocks);
-      console.log(yourStocks);
-      /*  test(); */
-
       alert(
         `Great we will debited from your account $${totalPrice} and ${remaining} will remain in your in your account`
       );

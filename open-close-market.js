@@ -37,14 +37,11 @@ function loop() {
   now = new Date();
   // Opening Hours
   let openingHours = new Date();
-  openingHours.setHours(9);
-  openingHours.setMinutes(30);
+  openingHours.setHours(9, 30);
 
   // Closing Hours
   let closingHours = new Date();
-  closingHours.setHours(16);
-  closingHours.setMinutes(00);
-  closingHours.setSeconds(00);
+  closingHours.setHours(16, 00, 00);
 
   let isOpen;
 
@@ -106,9 +103,3 @@ switch (new Date().getDay()) {
   default:
     IS_MARKET_OPEN.innerHTML += `TODAY IS: ${day}`;
 }
-/* const days = () => {
-  let day;
-};
-
-let dayInMilliseconds = 1000 * 60 * 60 * 24;
-setInterval(days, dayInMilliseconds); */
