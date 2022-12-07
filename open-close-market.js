@@ -60,7 +60,6 @@ function loop() {
 
   now = new Date();
   let delay = now % 60000; // exact ms to next minute
-
   setTimeout(loop, delay);
 }
 

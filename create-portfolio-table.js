@@ -1,7 +1,7 @@
 let i;
 let sum = 0;
 sum.toFixed(2);
-let createProtfolioTable = () => {
+let createProtfolioTable = async () => {
   let tableBodyElement = document.getElementById("your-stocks");
   tableBodyElement.innerHTML = null;
 
@@ -9,16 +9,26 @@ let createProtfolioTable = () => {
     let company = COMPANIES[i];
     let trElement = document.createElement("tr");
 
-    /*  let divElement = document.createElement("div");
+    try {
+      const response = await fetch(
+        "https://api.polygon.io/v2/aggs/ticker/" +
+          `${company?.ticker}` +
+          "/prev?adjusted=true&apiKey=UOu086oqXGc7zuCtSFuV2als70WgZNGG"
+      );
 
-    trElement.append(divElement); 
-  
-  <div class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></div> */
+      const data = await response.json();
 
-    creat(trElement, company.ticker);
-    creat(trElement, company.price);
-    creat(trElement, company.amount);
-    creat(trElement, company.totalAmount.toFixed(2));
+      creat(trElement, company.ticker);
+      creat(trElement, data.results[0].c);
+      creat(trElement, company.amount);
+      creat(trElement, company.totalAmount.toFixed(2));
+      console.log(data);
+      var current = data.results[0].c;
+      var heigh = data.results[0].h;
+      var low = data.results[0].l;
+    } catch (error) {
+      console.log(error);
+    }
 
     let btnTd = document.createElement("td");
     let btnAdd = document.createElement("button");
